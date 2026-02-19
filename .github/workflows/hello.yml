@@ -1,10 +1,16 @@
 name: Hello
-on: push
+on: [push, pull_request]
 
 jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+      - run: echo "Hello, world"
+      - run: |
+          git log -1
+          ls -la
       - uses: ./.github/actions/hello
       - run: echo "Hello workflow"
