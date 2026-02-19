@@ -1,0 +1,7 @@
+name: Hello
+description: Local composite action
+runs:
+  using: composite
+  steps:
+    - run: echo "Hello from local action"
+      shell: bash
